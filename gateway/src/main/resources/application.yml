@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+  cloud:
+    gateway:
+      routes:
+        - id: stock-service
+          uri: lb://stock-service
+          predicates:
+            - Path=/api/stocks/**
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

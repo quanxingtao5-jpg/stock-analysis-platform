@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: stock-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
