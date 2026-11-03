@@ -1,0 +1,23 @@
+server:
+  port: ${STOCK_SERVICE_PORT:8081}
+spring:
+  config:
+    import: optional:file:./stock-service/config/application-local-private.yml,optional:file:./config/application-local-private.yml
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://127.0.0.1:3306/stock_analysis?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:}
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:127.0.0.1}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_ADDR:127.0.0.1:8848}
